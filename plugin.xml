@@ -19,6 +19,36 @@
             </feature>
         </config-file>
 
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <!-- Network permissions -->
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+            <!-- Bluetooth permissions -->
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+            <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+            <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+
+            <!-- Location permissions -->
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+            <!-- NFC permissions -->
+            <uses-permission android:name="android.permission.NFC" />
+
+            <!-- Camera permissions -->
+            <uses-permission android:name="android.permission.CAMERA" />
+
+            <!-- Optional features -->
+            <uses-feature android:name="android.hardware.bluetooth" android:required="false" />
+            <uses-feature android:name="android.hardware.bluetooth_le" android:required="false" />
+            <uses-feature android:name="android.hardware.nfc" android:required="false" />
+            <uses-feature android:name="android.hardware.camera" android:required="false" />
+            <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+        </config-file>
+
         <source-file src="src/android/SumpupTest.java" target-dir="src/com/mamtoug/sumpuptest" />
     </platform>
 
