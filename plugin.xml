@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+        id="sumpuptest"
+        version="1.0.0">
+    <n>SumpupTest</n>
+    <description>A Cordova plugin for SumUp payment integration testing</description>
+    <license>MIT</license>
+    <keywords>cordova,plugin,sumup,payment</keywords>
+
+    <js-module src="www/js/sumpuptest.js" name="SumpupTest">
+        <clobbers target="window.SumpupTest"/>
+    </js-module>
+
+    <!-- Android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SumpupTest">
+                <param name="android-package" value="com.mamtoug.sumpuptest.SumpupTest" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/SumpupTest.java" target-dir="src/com/mamtoug/sumpuptest" />
+    </platform>
+
+    <!-- iOS -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="SumpupTest">
+                <param name="ios-package" value="SumpupTest" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/ios/SumpupTest.swift" />
+    </platform>
+</plugin>

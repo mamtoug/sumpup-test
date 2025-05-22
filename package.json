@@ -1,0 +1,51 @@
+{
+  "name": "sumpuptest",
+  "version": "1.0.0",
+  "description": "A Cordova plugin for SumUp payment integration testing",
+  "main": "www/js/sumpuptest.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mamtoug/sumpupTest.git"
+  },
+  "keywords": [
+    "cordova",
+    "plugin",
+    "sumup",
+    "payment",
+    "test",
+    "android",
+    "ios",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": {
+    "name": "mamtoug",
+    "email": "mamtoug@example.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mamtoug/sumpupTest/issues"
+  },
+  "homepage": "https://github.com/mamtoug/sumpupTest#readme",
+  "engines": {
+    "cordovaDependencies": {
+      "3.0.0": {
+        "cordova": ">=3.0.0"
+      }
+    }
+  },
+  "cordova": {
+    "id": "sumpuptest",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "peerDependencies": {
+    "cordova": ">=3.0.0"
+  }
+}
