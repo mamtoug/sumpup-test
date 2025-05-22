@@ -1,4 +1,4 @@
-const CLASS = "SumUp";
+const CLASS = "SumpupTest";
 
 module.exports = {
     login: (sumUpKeys, success, failure) => {
