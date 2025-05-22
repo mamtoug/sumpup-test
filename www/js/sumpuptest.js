@@ -1,50 +1,40 @@
-var exec = require('cordova/exec');
+const CLASS = "SumUp";
 
-/**
- * SumpupTest Plugin
- * A Cordova plugin for SumUp payment integration testing
- */
-var SumpupTest = {
-
-    /**
-     * Show a test message
-     * @param {string} message - The message to display
-     * @param {function} success - Success callback
-     * @param {function} error - Error callback
-     */
-    showMessage: function(message, success, error) {
-        exec(success, error, 'SumpupTest', 'showMessage', [message || 'Hello from SumpupTest!']);
+module.exports = {
+    login: (sumUpKeys, success, failure) => {
+        cordova.exec(success, failure, CLASS, "login", [sumUpKeys]);
     },
-
-    /**
-     * Get device information
-     * @param {function} success - Success callback
-     * @param {function} error - Error callback
-     */
-    getDeviceInfo: function(success, error) {
-        exec(success, error, 'SumpupTest', 'getDeviceInfo', []);
+    auth: (accessToken, success, failure) => {
+        cordova.exec(
+            success,
+            failure,
+            CLASS,
+            "auth",
+            accessToken ? [accessToken] : []
+        );
     },
-
-    /**
-     * Test SumUp initialization (placeholder)
-     * @param {string} apiKey - SumUp API key
-     * @param {function} success - Success callback
-     * @param {function} error - Error callback
-     */
-    initSumUp: function(apiKey, success, error) {
-        exec(success, error, 'SumpupTest', 'initSumUp', [apiKey]);
+    getSettings: (success, failure) => {
+        cordova.exec(success, failure, CLASS, "getSettings", []);
     },
-
-    /**
-     * Test payment simulation (placeholder)
-     * @param {number} amount - Payment amount
-     * @param {string} currency - Currency code
-     * @param {function} success - Success callback
-     * @param {function} error - Error callback
-     */
-    testPayment: function(amount, currency, success, error) {
-        exec(success, error, 'SumpupTest', 'testPayment', [amount, currency || 'EUR']);
-    }
+    logout: (success, failure) => {
+        cordova.exec(success, failure, CLASS, "logout", []);
+    },
+    isLoggedIn: (success, failure) => {
+        cordova.exec(success, failure, CLASS, "isLoggedIn", []);
+    },
+    prepare: (success, failure) => {
+        cordova.exec(success, failure, CLASS, "prepare", []);
+    },
+    setup: (success, failure) => {
+        cordova.exec(success, failure, CLASS, "setup", []);
+    },
+    test: (success, failure) => {
+        cordova.exec(success, failure, CLASS, "test", []);
+    },
+    closeConnection: (success, failure) => {
+        cordova.exec(success, failure, CLASS, "closeConnection", []);
+    },
+    pay: (amount, title, currencyCode, success, failure) => {
+        cordova.exec(success, failure, CLASS, "pay", [amount, title, currencyCode]);
+    },
 };
-
-module.exports = SumpupTest;
