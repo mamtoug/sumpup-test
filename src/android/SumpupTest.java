@@ -29,7 +29,7 @@ import org.json.JSONObject;
  * @author Marius Backes
  * Updated for SumUp SDK 5.0.2
  */
-public class SumUp extends CordovaPlugin {
+public class SumpupTest extends CordovaPlugin {
 
     // SumUp Methods
     public enum Action {
