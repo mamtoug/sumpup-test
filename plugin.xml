@@ -55,6 +55,8 @@
         </config-file>
 
         <source-file src="src/android/SumpupTest.java" target-dir="src/com/mamtoug/sumpuptest" />
+        <framework src="src/android/sumpuptest.gradle" custom="true" type="gradleReference" />
+
     </platform>
 
     <!-- iOS -->
@@ -68,7 +70,6 @@
         <source-file src="src/ios/SumpupTest.swift" />
 
 
-        <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
 
 
     </platform>

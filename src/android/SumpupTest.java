@@ -1,4 +1,4 @@
-package de.mamtoug.cordova.sumup;
+package com.mamtoug.sumpuptest;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,10 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * @author Marius Backes
- * Updated for SumUp SDK 5.0.2
- */
+
 public class SumpupTest extends CordovaPlugin {
 
     // SumUp Methods
