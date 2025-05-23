@@ -59,18 +59,104 @@
 
     </platform>
 
-    <!-- iOS -->
     <platform name="ios">
+        <!-- Plugin preference for iOS -->
+        <preference name="SUMUP_API_KEY" />
+
+        <!-- Feature configuration -->
         <config-file target="config.xml" parent="/*">
             <feature name="SumpupTest">
                 <param name="ios-package" value="SumpupTest" />
+                <param name="onload" value="true" />
             </feature>
         </config-file>
 
+        <!-- Add API key to Info.plist -->
+        <config-file target="*-Info.plist" parent="*">
+            <key>SUMUP_API_KEY</key>
+            <string>$SUMUP_API_KEY</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="*">
+            <!-- Bluetooth permissions -->
+            <key>NSBluetoothAlwaysUsageDescription</key>
+            <string>This app uses Bluetooth to connect to SumUp card readers</string>
+            <key>NSBluetoothPeripheralUsageDescription</key>
+            <string>This app uses Bluetooth to connect to SumUp card readers</string>
+
+            <!-- Location permissions (required for Bluetooth scanning) -->
+            <key>NSLocationWhenInUseUsageDescription</key>
+            <string>This app needs location access to scan for Bluetooth card readers</string>
+            <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+            <string>This app needs location access to scan for Bluetooth card readers</string>
+
+            <!-- Camera permissions (for QR code scanning) -->
+            <key>NSCameraUsageDescription</key>
+            <string>This app uses the camera to scan QR codes for payment</string>
+
+            <!-- Microphone permissions (if needed) -->
+            <key>NSMicrophoneUsageDescription</key>
+            <string>This app may use the microphone for audio jack card readers</string>
+        </config-file>
+
+        <!-- Add required iOS frameworks -->
+        <framework src="Foundation.framework" />
+        <framework src="UIKit.framework" />
+        <framework src="CoreBluetooth.framework" />
+        <framework src="CoreLocation.framework" />
+        <framework src="AVFoundation.framework" />
+        <framework src="ExternalAccessory.framework" />
+        <framework src="AudioToolbox.framework" />
+
+        <!-- SumUp iOS SDK - Add the actual SumUp framework -->
+        <!-- You'll need to download the SumUp iOS SDK and include it -->
+        <framework src="src/ios/SumUpSDK.framework" custom="true" />
+
+        <!-- OR if using CocoaPods, add this instead -->
+        <podspec>
+            <config>
+                <source url="https://github.com/CocoaPods/Specs.git"/>
+            </config>
+            <pods use-frameworks="true">
+                <pod name="SumUpSDK" spec="~> 4.0" />
+            </pods>
+        </podspec>
+
+        <!-- Swift source files -->
         <source-file src="src/ios/SumpupTest.swift" />
 
+        <!-- Bridging header if you have Objective-C code -->
+        <header-file src="src/ios/SumpupTest-Bridging-Header.h" />
 
+        <!-- iOS deployment target and Swift version -->
+        <preference name="deployment-target" value="11.0" />
+        <preference name="SwiftVersion" value="5.0" />
 
+        <!-- URL schemes for SumUp (if needed for authentication) -->
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+            <array>
+                <dict>
+                    <key>CFBundleURLName</key>
+                    <string>com.mamtoug.sumpuptest</string>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>sumpuptest</string>
+                    </array>
+                </dict>
+            </array>
+        </config-file>
+
+        <!-- Background modes (if needed) -->
+        <config-file target="*-Info.plist" parent="UIBackgroundModes">
+            <array>
+                <string>bluetooth-central</string>
+                <string>bluetooth-peripheral</string>
+            </array>
+        </config-file>
 
     </platform>
+
+
+
+
 </plugin>
